@@ -30,6 +30,8 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   title: {
+    fontSize: 20,
+    fontWeight: "500",
     marginBottom: 7,
   },
   subtitle: {
