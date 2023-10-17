@@ -2,8 +2,6 @@ import {
   View,
   Text,
   StyleSheet,
-  SafeAreaView,
-  StatusBar,
   Image,
   ImageBackground,
 } from "react-native";

@@ -10,8 +10,7 @@ import {
 
 const ListItem = ({
   image,
-  ImageComponent,
-  icon,
+  IconComponent,
   title,
   subTitle,
   onPress,
@@ -23,7 +22,7 @@ const ListItem = ({
         <TouchableHighlight onPress={onPress} underlayColor={colors.light}>
           <View style={styles.listDetailContainer}>
             <View style={styles.mediaContainer}>
-              {ImageComponent}
+              {IconComponent}
               {image && <Image style={styles.avatar} source={image} />}
             </View>
             <View style={styles.textContainer}>
@@ -42,8 +41,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     gap: 10,
     padding: 15,
+    backgroundColor: colors.white,
   },
-
   avatar: {
     height: 70,
     width: 70,

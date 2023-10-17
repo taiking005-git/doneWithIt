@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, View, Image } from "react-native";
 import colors from "../config/colors";
 import AppText from "./AppText";
 
@@ -23,11 +23,11 @@ const styles = StyleSheet.create({
     overflow: "hidden",
   },
   cardImage: {
-    height: 220,
+    height: 200,
     width: "100%",
   },
   detailContainer: {
-    padding: 10,
+    padding: 20,
   },
   title: {
     fontSize: 20,
