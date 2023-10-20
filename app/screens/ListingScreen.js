@@ -1,7 +1,7 @@
 import { FlatList, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import Screen from './Screen'
-import ListItem from '../components/ListItem'
+import ListItem from '../components/list/ListItem'
 import Card from '../components/Card'
 import colors from '../config/colors'
 

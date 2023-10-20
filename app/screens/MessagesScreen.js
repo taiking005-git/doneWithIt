@@ -1,5 +1,5 @@
 import { FlatList, StyleSheet, StatusBar, Platform } from "react-native";
-import ListItem from "../components/ListItem";
+import ListItem from "../components/list/ListItem";
 import Screen from "./Screen";
 import ListItemSeparator from "../components/ListItemSeparator";
 import ListItemDeleteAction from "../components/ListItemDeleteAction";

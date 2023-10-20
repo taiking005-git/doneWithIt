@@ -19,7 +19,7 @@ const AppPicker = ({ iconText, items, placeholder, onSeletedItem, selectedItem }
                             size={25}
                             color={defaultStyle.colors.medium}
                         />}
-                    <AppText style={styles.text}>{selectedItem ? selectedItem.label : placeholder}</AppText>
+                    <AppText style={[styles.text, defaultStyle.text]}>{selectedItem ? selectedItem.label : placeholder}</AppText>
                     <MaterialCommunityIcons
                         name={"chevron-down"}
                         size={25}
@@ -61,6 +61,6 @@ const styles = StyleSheet.create({
         marginVertical: 10,
     },
     text: {
-        flex: 1
+        flex: 1,
     }
 })
