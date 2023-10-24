@@ -1,4 +1,4 @@
-import { Button, FlatList, Modal, StyleSheet, Text, TouchableWithoutFeedback, View } from 'react-native'
+import { Button, FlatList, Modal, StyleSheet, TouchableWithoutFeedback, View } from 'react-native'
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 import defaultStyle from '../config/style'
@@ -6,13 +6,22 @@ import AppText from './AppText';
 import { useState } from 'react';
 import PickerItem from './PickerItem';
 
-const AppPicker = ({ iconText, items, placeholder, onSeletedItem, selectedItem }) => {
+const AppPicker = ({
+    iconText,
+    width = "100%",
+    items,
+    numberOfColumns = 1,
+    placeholder,
+    PickerItemComponent = PickerItem,
+    onSeletedItem,
+    selectedItem
+}) => {
     const [modalVisible, setModalVisible] = useState(false)
 
     return (
         <>
             <TouchableWithoutFeedback onPress={() => setModalVisible(true)}>
-                <View style={styles.container}>
+                <View style={[styles.container, { width }]}>
                     {iconText &&
                         <MaterialCommunityIcons
                             name={iconText}
@@ -31,16 +40,17 @@ const AppPicker = ({ iconText, items, placeholder, onSeletedItem, selectedItem }
                 <Button title='close' onPress={() => setModalVisible(false)} />
                 <FlatList
                     data={items}
-                    keyExtractor={items => items.value.toString()}
+                    keyExtractor={item => item.value.toString()}
                     renderItem={({ item }) =>
-                        <PickerItem
-                            label={item.label}
+                        <PickerItemComponent
+                            item={item}
                             onPress={() => {
                                 setModalVisible(false)
                                 onSeletedItem(item)
                             }}
                         />
                     }
+                    numColumns={numberOfColumns}
                 />
             </Modal>
         </>
@@ -62,5 +72,6 @@ const styles = StyleSheet.create({
     },
     text: {
         flex: 1,
-    }
+    },
+
 })

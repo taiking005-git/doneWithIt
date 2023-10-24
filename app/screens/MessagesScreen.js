@@ -1,20 +1,20 @@
 import { FlatList, StyleSheet, StatusBar, Platform } from "react-native";
 import ListItem from "../components/list/ListItem";
 import Screen from "./Screen";
-import ListItemSeparator from "../components/ListItemSeparator";
-import ListItemDeleteAction from "../components/ListItemDeleteAction";
+import ListItemSeparator from "../components/list/ListItemSeparator";
+import ListItemDeleteAction from "../components/list/ListItemDeleteAction";
 import { useState } from "react";
 
 const initialMessages = [
   {
     id: 1,
-    title: "1",
+    title: "T1",
     description: "D1",
     image: require("../assets/mosh.jpg"),
   },
   {
     id: 2,
-    title: "2",
+    title: "T2",
     description: "D2",
     image: require("../assets/mosh.jpg"),
   },
@@ -54,7 +54,7 @@ const MessagesScreen = () => {
             id: 2,
             title: "2",
             description: "D2",
-            image: require("../assets/mosh.jpg"),
+            image: require("./../assets/mosh.jpg"),
           }
         ])}
       />
@@ -64,8 +64,8 @@ const MessagesScreen = () => {
 
 export default MessagesScreen;
 
-const styles = StyleSheet.create({
-  screen: {
-    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
-  },
-});
+// const styles = StyleSheet.create({
+//   screen: {
+//     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+//   },
+// });
