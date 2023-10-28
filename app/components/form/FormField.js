@@ -5,7 +5,7 @@ import { useFormikContext } from 'formik'
 
 
 
-const AppFormField = ({ name, width, ...otherProps }) => {
+const FormField = ({ name, width, ...otherProps }) => {
     const { setFieldTouched, touched, handleChange, errors } = useFormikContext();
     return (
         <>
@@ -20,5 +20,5 @@ const AppFormField = ({ name, width, ...otherProps }) => {
     )
 }
 
-export default AppFormField
+export default FormField
 

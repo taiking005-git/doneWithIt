@@ -1,11 +1,12 @@
-import { StyleSheet } from 'react-native'
-
-import Screen from './Screen'
-import { AppForm, AppFormField, SubmitButton, AppFormPicker } from '../components/form'
 import * as Yup from 'yup';
 import CategoryPickerItem from '../components/CategoryPickerItem';
+import { Form, FormField, FormPicker, SubmitButton } from '../components/form';
+import FormImagePicker from '../components/form/FormImagePicker';
+import Screen from './Screen';
+import useLocation from '../hooks/useLocation';
 
 const valiadationSchema = Yup.object().shape({
+    images: Yup.array().min(1, "Please select at least one image "),
     title: Yup.string().required().min(1).label("Title"),
     price: Yup.string().required().min(1).max(10000).label("Price"),
     categories: Yup.object().label("Categories"),
@@ -25,31 +26,37 @@ const categories = [
 ]
 
 const ListEditingScreen = () => {
+    const location = useLocation();
+
     return (
         <Screen>
-            <AppForm
+            <Form
                 initialValues={{
+                    images: [],
                     title: "",
                     price: "",
                     categories: null,
                     description: ""
                 }}
-                onSubmit={(value) => console.log(value)}
+                onSubmit={(value) => console.log(location)}
                 valiadationSchema={valiadationSchema}
             >
-                <AppFormField
+                <FormImagePicker
+                    name={"images"}
+                />
+                <FormField
                     placeholder={"Title"}
                     name={"title"}
                     maxLength={255}
                 />
-                <AppFormField
+                <FormField
                     placeholder={"Price"}
                     name={"price"}
                     keyboardType="numeric"
                     maxLength={8}
                     width={120}
                 />
-                <AppFormPicker
+                <FormPicker
                     placeholder={"Category"}
                     name={"categories"}
                     items={categories}
@@ -57,7 +64,7 @@ const ListEditingScreen = () => {
                     numberOfColumns={3}
                     PickerItemComponent={CategoryPickerItem}
                 />
-                <AppFormField
+                <FormField
                     placeholder={"Description"}
                     name={"description"}
                     maxLength={255}
@@ -65,14 +72,10 @@ const ListEditingScreen = () => {
                     numberOfLines={3}
                 />
                 <SubmitButton title={"Post"} />
-            </AppForm>
+            </Form>
 
         </Screen>
     )
 }
 
 export default ListEditingScreen
-
-const styles = StyleSheet.create({
-
-})

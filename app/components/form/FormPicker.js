@@ -5,7 +5,7 @@ import { useFormikContext } from 'formik';
 
 
 
-const AppFormPicker = ({ name, numberOfColumns, width, items, PickerItemComponent, placeholder, icon }) => {
+const FormPicker = ({ name, numberOfColumns, width, items, PickerItemComponent, placeholder, icon }) => {
     const { values, setFieldValue, touched, errors } = useFormikContext();
     return (
         <>
@@ -24,4 +24,4 @@ const AppFormPicker = ({ name, numberOfColumns, width, items, PickerItemComponen
     )
 }
 
-export default AppFormPicker
+export default FormPicker

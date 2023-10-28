@@ -1,4 +1,4 @@
-import { FlatList, StyleSheet, StatusBar, Platform } from "react-native";
+import { FlatList} from "react-native";
 import ListItem from "../components/list/ListItem";
 import Screen from "./Screen";
 import ListItemSeparator from "../components/list/ListItemSeparator";
@@ -49,14 +49,18 @@ const MessagesScreen = () => {
           />
         )}
         ItemSeparatorComponent={() => <ListItemSeparator />}
-        refreshing={() => setMessages([
-          {
-            id: 2,
-            title: "2",
-            description: "D2",
-            image: require("./../assets/mosh.jpg"),
-          }
-        ])}
+
+        refreshing={refreshing}
+        
+        
+        // refreshing={() => setMessages([
+        //   {
+        //     id: 2,
+        //     title: "2",
+        //     description: "D2",
+        //     image: require("./../assets/mosh.jpg"),
+        //   }
+        // ])}
       />
     </Screen>
   );
@@ -64,8 +68,3 @@ const MessagesScreen = () => {
 
 export default MessagesScreen;
 
-// const styles = StyleSheet.create({
-//   screen: {
-//     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
-//   },
-// });
