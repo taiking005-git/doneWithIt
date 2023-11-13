@@ -4,20 +4,23 @@ import AppText from "../components/AppText";
 import colors from "../config/colors";
 import ListItem from "../components/list/ListItem";
 
-const ListingDetailsScreen = () => {
+
+const ListingDetailsScreen = ({ navigation, route }) => {
+  const listing = route.params;
   return (
     <View style={styles.container}>
       <View>
-        <Image style={styles.image} source={require("../assets/jacket.jpg")} />
+        <Image style={styles.image} source={{uri: listing.images[0].url}} />
         <View style={styles.detail}>
-          <AppText style={styles.title}>Red jacket for sale</AppText>
-          <AppText style={styles.subtitle}>$100</AppText>
+          <AppText style={styles.title}>{listing.title}</AppText>
+          <AppText style={styles.subtitle}>${listing.price}</AppText>
         </View>
       </View>
       <ListItem
         image={require("../assets/mosh.jpg")}
         title={"Mosh Code"}
         subTitle="5 Listing"
+        onPress={() => navigation.navigate("Account")}
       />
     </View>
   );

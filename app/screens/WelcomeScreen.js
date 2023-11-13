@@ -6,9 +6,10 @@ import {
   ImageBackground,
 } from "react-native";
 
+
 import AppButton from "../components/AppButton";
 
-const WelcomeScreen = () => {
+const WelcomeScreen = ({navigation}) => {
   return (
     <ImageBackground
       resizeMode="cover"
@@ -23,18 +24,16 @@ const WelcomeScreen = () => {
       <View style={styles.buttonContainer}>
         <AppButton
           title={"Login"}
-          onPress={() => alert("button pressed")
-          }
+          onPress={() => navigation.navigate("Login") }
         />
         <AppButton
           title={"Register"}
           color={"secondary"}
-          onPress={() => {
-            "button tapped";
-          }}
+          onPress={() => navigation.navigate("Register")}
         />
       </View>
     </ImageBackground>
+    
   );
 };
 

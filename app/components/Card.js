@@ -1,16 +1,18 @@
-import { StyleSheet, View, Image } from "react-native";
+import { StyleSheet, View, Image, Pressable } from "react-native";
 import colors from "../config/colors";
 import AppText from "./AppText";
 
-export default function Card({ title, subtitle, image }) {
+
+export default function Card({ title, subtitle, imageUrl, onPress }) {
+
   return (
-    <View style={styles.cardContainer}>
-      <Image style={styles.cardImage} source={image} />
+    <Pressable style={styles.cardContainer} onPress={onPress}>
+      <Image style={styles.cardImage} source={{ uri: imageUrl }} />
       <View style={styles.detailContainer}>
         <AppText style={styles.title}>{title}</AppText>
         <AppText style={styles.subtitle}>{subtitle}</AppText>
       </View>
-    </View>
+    </Pressable>
   );
 }
 

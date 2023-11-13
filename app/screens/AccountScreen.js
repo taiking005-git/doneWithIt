@@ -4,7 +4,7 @@ import Screen from "./Screen";
 import ListItem from "../components/list/ListItem";
 import colors from "../config/colors";
 import Icon from "../components/Icon";
-import ListItemSeparator from "../components/ListItemSeparator";
+import ListItemSeparator from "../components/list/ListItemSeparator";
 
 const menuItems = [
   {
@@ -19,11 +19,12 @@ const menuItems = [
     icon: {
       name: "email",
       backgroundColor: colors.secondary,
-    }
+    },
+    targetScreen: "Messages",
   },
 ]
 
-const AccountScreen = () => {
+const AccountScreen = ({navigation}) => {
   return (
     <Screen style={styles.screen}>
       <View style={styles.container}>
@@ -46,6 +47,7 @@ const AccountScreen = () => {
                 />
               }
               title={item.title}
+              onPress={() => navigation.navigate(item.targetScreen) }
             />
           }
           ItemSeparatorComponent={() => <ListItemSeparator />}
