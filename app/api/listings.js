@@ -4,7 +4,7 @@ const endpoint = "/api/listings";
 
 const getListings = () => client.get(endpoint);
 
-const addListings = (listing, onUploadProgress) => {
+const addListings = async (listing, onUploadProgress) => {
     const data = new FormData();
     data.append("title", listing.title)
     data.append("price", listing.price)

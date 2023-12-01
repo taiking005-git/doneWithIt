@@ -8,6 +8,7 @@ import AppText from '../components/AppText'
 import AppButton from '../components/AppButton'
 import ActivityIndicator from '../components/ActivityIndicator'
 import useApi from '../hooks/useApi'
+import OfflineIndicator from '../components/OfflineIndicator'
 
 
 const ListingScreen = ({ navigation }) => {
@@ -25,6 +26,7 @@ const ListingScreen = ({ navigation }) => {
                     <AppButton title={"Retry"} onPress={getListingApi.request} />
                 </>)}
             <ActivityIndicator visible={getListingApi.loading} />
+            <OfflineIndicator />
             <FlatList
                 data={getListingApi.data}
                 keyExtractor={listingItem => listingItem.id.toString()}

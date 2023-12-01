@@ -1,6 +1,6 @@
 import { Formik } from 'formik'
 
-const Form = ({ initialValues, onSubmit, valiadationSchema, children }) => {
+const Form = ({ initialValues, onSubmit, valiadationSchema, children, value }) => {
     return (
         <Formik
             initialValues={initialValues}
