@@ -8,11 +8,12 @@ import AppText from '../components/AppText'
 import AppButton from '../components/AppButton'
 import ActivityIndicator from '../components/ActivityIndicator'
 import useApi from '../hooks/useApi'
-import OfflineIndicator from '../components/OfflineIndicator'
+
 
 
 const ListingScreen = ({ navigation }) => {
     const getListingApi = useApi(listingApi.getListings)
+
     
     useEffect(() => {
         getListingApi.request()
@@ -26,7 +27,6 @@ const ListingScreen = ({ navigation }) => {
                     <AppButton title={"Retry"} onPress={getListingApi.request} />
                 </>)}
             <ActivityIndicator visible={getListingApi.loading} />
-            <OfflineIndicator />
             <FlatList
                 data={getListingApi.data}
                 keyExtractor={listingItem => listingItem.id.toString()}
@@ -38,10 +38,10 @@ const ListingScreen = ({ navigation }) => {
                         onPress={() => navigation.navigate("detailScreen", item)}
                     />
                 }
-                refreshing={getListingApi.loading}
-                onRefresh={() => {
-                    getListingApi.request()
-                }}
+                // refreshing={getListingApi.loading}
+                // onRefresh={() => {
+                //     getListingApi.request()
+                // }}
             />
         </Screen>
     )

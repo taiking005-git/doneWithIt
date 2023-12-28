@@ -7,7 +7,7 @@ export default function Card({ title, subtitle, imageUrl, onPress }) {
 
   return (
     <Pressable style={styles.cardContainer} onPress={onPress}>
-      <Image style={styles.cardImage} source={{ uri: imageUrl }} />
+      <Image style={styles.cardImage}  source={{ uri: imageUrl }} />
       <View style={styles.detailContainer}>
         <AppText style={styles.title}>{title}</AppText>
         <AppText style={styles.subtitle}>{subtitle}</AppText>
